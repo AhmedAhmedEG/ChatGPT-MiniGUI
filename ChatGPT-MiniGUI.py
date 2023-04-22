@@ -17,7 +17,7 @@ def read_config():
     config.optionxform = str
 
     if not os.path.exists('config.ini'):
-        config['API Keys'] = {'OpenAI': 'ApIKeyHere'}
+        config['API Keys'] = {'OpenAI': 'APIKeyHere'}
 
         with open('config.ini', 'w') as configfile:
             config.write(configfile)
