@@ -8,7 +8,7 @@
 Simple GUI to interact with ChatGPT directly using an API key.
 
 # How To Use
-When you first lauch the app, a new file called "config.ini" will be created in the same directory as the app, edit it and paste your OpenAI API key in place of the phrase "APIKeyHere".
+Edit "config.ini" and paste your OpenAI API key in place of the phrase "APIKeyHere", in case this file got deleted, it will be recreated automatically when you run the app.
 
 # How To Build From Code
 1- Make a python virtual environment inside the project's folder with the name "venv" and run this command in it's shell: ```pip install pyside6 openai cx_Freeze```.
