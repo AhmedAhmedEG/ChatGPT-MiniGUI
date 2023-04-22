@@ -5,7 +5,7 @@
 
 
 # ChatGPT-MiniGUI
-Simple GUI to interact with ChatGPT using API key.
+Simple GUI to interact with ChatGPT directly using an API key.
 
 # How To Use
 When you first lauch the app, a new file called "config.ini" will be created in the same directory as the app, edit it and paste your OpenAI API key in place of the phrase "APIKeyHere".
