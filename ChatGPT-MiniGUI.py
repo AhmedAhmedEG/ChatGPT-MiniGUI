@@ -1,14 +1,12 @@
-import configparser
-import os
-
 from PySide6.QtWidgets import QApplication, QWidget, QVBoxLayout, QScrollArea, QTextEdit, QGridLayout, QLabel, QPushButton, QFrame, QLayout, \
-    QGraphicsOpacityEffect
+    QGraphicsOpacityEffect, QMessageBox
 from PySide6.QtCore import QSize, Qt, QEvent, QObject, QRunnable, Signal, Slot, QTimer, QThreadPool, QPoint, QPropertyAnimation, QEasingCurve
 from PySide6.QtGui import QPalette, QColor, QPixmap, QGuiApplication, QKeyEvent, QFont, QMovie
 from PySide6 import QtGui, QtCore
-from io import StringIO
+import configparser
 import faulthandler
 import openai
+import os
 import sys
 
 
@@ -165,7 +163,7 @@ class CustomWindowFrame(QWidget):
             self.parent().move(0, 0)
 
     def exit(self):
-        app.quit()
+        sys.exit()
 
 
 class MessageBlock(QTextEdit):
@@ -324,7 +322,6 @@ if '__main__' in __name__:
         faulthandler.enable()
 
     config = read_config()
-    openai.api_key = config['API Keys']['OpenAI']
 
     palette = QPalette()
     palette.setColor(QPalette.ColorRole.Window, QColor("#353535"))
@@ -352,5 +349,10 @@ if '__main__' in __name__:
     window = ChatGPTGUI()
     window.resize(QSize(1280, 720))
     window.show()
+
+    openai.api_key = config['API Keys']['OpenAI']
+    if openai.api_key == 'APIKeyHere':
+        QMessageBox.critical(window, "Error", "No API key has been found.")
+        sys.exit()
 
     app.exec()
